@@ -1,0 +1,34 @@
+﻿
+
+@{
+    
+    string ACCESS_TOKEN = WXMvcApp.Tools.Access_Token_Tols.access_token;
+    string url = "https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=" + ACCESS_TOKEN + "&type=video";
+    }
+
+<script>
+    var UpLogin = function () {
+
+        var myform = document.getElementById("media");
+
+        var json = {title:  myform.title.value ,introduction: myform.introduction.value };
+
+
+        myform.description.value = JSON.stringify(json);
+
+
+        myform.submit();//提交表单
+
+    }
+</script>
+
+<form id="media" method="post" action="@url" enctype="multipart/form-data">
+    <input type="file" name="media" />
+    <input type="hidden" name="description" />
+    <input type="button"  value="上传视频" onclick="UpLogin()" />
+
+    <br />
+    视频标题：<input type="text" name="title" value="" />
+    视频描述：<input type="text" name="introduction" value="" />
+    
+</form>

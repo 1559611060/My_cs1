@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "SendImg";
+}
+
+@{
+    
+    string ACCESS_TOKEN = WXMvcApp.Tools.Access_Token_Tols.access_token;
+    string url = "https://api.weixin.qq.com/cgi-bin/material/add_material?access_token=" + ACCESS_TOKEN + "&type=image";
+    }
+
+<form id="media" method="post" action="@url" enctype="multipart/form-data">
+    <input type="file" name="media" />
+    <input type="submit"  value="上传图片" />
+
+</form>
